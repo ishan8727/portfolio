@@ -4,15 +4,16 @@ const Tech = () => {
     return (
         <div>
             <section
+                id="tech"
                 className="bg-black h-screen flex items-center justify-center text-white text-4xl snap-start"
                 style={{
-                    backgroundImage: "url('/tech-bg.jpg')",
+                    backgroundImage: "url('/bkgGOOD.jpg')",
                     backgroundSize: "cover",
                     backgroundAttachment: "fixed",
                     backgroundPosition: "center",
                 }}
             >
-              TECHS and stacks
+                TECHS and stacks
             </section>
         </div>
     )

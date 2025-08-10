@@ -1,0 +1,37 @@
+{
+  // Performance optimizations
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.suggest.autoImports": false,
+  "javascript.suggest.autoImports": false,
+  
+  // Reduce file watching
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true
+  },
+  
+  // Limit search scope
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true
+  },
+  
+  // Reduce IntelliSense overhead
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+  
+  // Disable expensive features
+  "editor.codeLens": false,
+  "editor.hover.delay": 1000,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  }
+}

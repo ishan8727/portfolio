@@ -18,6 +18,7 @@ const playfair = Playfair_Display_SC({
 const About = () => {
     return (
         <section
+            id="about"
             className="relative bg-black h-screen text-white text-4xl snap-start pt-2 pl-2"
             style={{
                 backgroundImage: "url('/bkg1.jpg')",

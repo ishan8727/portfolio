@@ -2,14 +2,26 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const AboutDivs = () => {
+  // Smooth scroll function to navigate to specific sections
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <div className='flex flex-col'>
 
       {/* HOME */}
       <motion.div
-        className='project mb-15'
+        className='project mb-15 cursor-pointer'
         whileHover={{ scale: 1, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={() => scrollToSection('about')}
       >
         <motion.text
           className='text-8xl bg-white text-black font-medium p-4'
@@ -22,9 +34,10 @@ const AboutDivs = () => {
 
       {/* PROJECTs */}
       <motion.div
-        className='project mb-5'
+        className='project mb-5 cursor-pointer'
         whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={() => scrollToSection('projects')}
       >
         <motion.text
           className='text-6xl'
@@ -37,9 +50,10 @@ const AboutDivs = () => {
 
       {/* SKILLS */}
       <motion.div
-        className='Skills mb-5'
+        className='Skills mb-5 cursor-pointer'
         whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={() => scrollToSection('tech')}
       >
         <motion.text
           className='text-6xl'
@@ -52,9 +66,10 @@ const AboutDivs = () => {
 
       {/* CONTACT */}
       <motion.div
-        className='Contact mb-15'
+        className='Contact mb-15 cursor-pointer'
         whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={() => scrollToSection('contact')}
       >
         <motion.text
           className='text-6xl text-white'
