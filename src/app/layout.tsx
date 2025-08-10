@@ -4,6 +4,9 @@ import "./globals.css";
 import { Variable } from "lucide-react";
 import { ThemeProvider } from "../lib/ThemeProvider"
 
+import { CursorContext, CursorProvider } from "@/context/cursor-context";
+import ZoomCursor from "@/components/ZoomCursor";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,9 +38,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       
+       <CursorProvider>
+        <ZoomCursor />
         {children}
-        
+        </CursorProvider>
       </body>
     </html>
   );

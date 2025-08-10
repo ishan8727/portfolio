@@ -3,6 +3,7 @@ import { motion, scale } from 'framer-motion';
 import { Major_Mono_Display, Playfair_Display_SC } from 'next/font/google';
 import Image from 'next/image';
 import { Link } from 'lucide-react';
+import AboutDivs from '@/components/AboutDivs';
 
 const majorMono = Major_Mono_Display({
     subsets: ['latin'],
@@ -17,7 +18,7 @@ const playfair = Playfair_Display_SC({
 const About = () => {
     return (
         <section
-            className="bg-black h-screen text-white text-4xl snap-start pt-2 pl-2"
+            className="relative bg-black h-screen text-white text-4xl snap-start pt-2 pl-2"
             style={{
                 backgroundImage: "url('/bkg1.jpg')",
                 backgroundSize: "cover",
@@ -25,7 +26,7 @@ const About = () => {
                 backgroundPosition: "center",
             }}
         >
-            {/* Header with name and socials - EXACT original spacing */}
+            {/* Header with name and socials */}
             <div className="flex justify-between items-center w-full px-4">
                 <div className={`${majorMono.className} text-5xl flex`}>
                     {"ISHAN CHAUDHARY".split("").map((char, i) => (
@@ -117,6 +118,9 @@ const About = () => {
                         I am a keen learner who likes to build and explore tech.
                     </p>
                 </div>
+            </div>
+            <div className='absolute right-4 bottom-10'>
+                <AboutDivs />
             </div>
         </section>
     );

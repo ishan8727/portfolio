@@ -12,7 +12,7 @@ const Tech = () => {
                     backgroundPosition: "center",
                 }}
             >
-                Tech Stack
+              TECHS and stacks
             </section>
         </div>
     )

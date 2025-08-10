@@ -12,7 +12,7 @@ const Projects = () => {
                     backgroundPosition: "center",
                 }}
             >
-                Projects
+                PROJECTS
             </section>
         </div>
     )
