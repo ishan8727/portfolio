@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, scale } from 'framer-motion';
 import { Major_Mono_Display, Playfair_Display_SC } from 'next/font/google';
 import Image from 'next/image';
-import bkg1 from '../public/bkg1.jpg';
+import { Link } from 'lucide-react';
 
 const majorMono = Major_Mono_Display({
     subsets: ['latin'],
@@ -19,7 +19,7 @@ const About = () => {
         <section
             className="bg-black h-screen text-white text-4xl snap-start pt-2 pl-2"
             style={{
-                backgroundImage: `url(${bkg1.src})`,
+                backgroundImage: "url('/bkg1.jpg')",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
                 backgroundPosition: "center",
@@ -27,7 +27,7 @@ const About = () => {
         >
             {/* Header with name and socials - EXACT original spacing */}
             <div className="flex justify-between items-center w-full px-4">
-                <div className={`${majorMono.className} text-4xl flex`}>
+                <div className={`${majorMono.className} text-5xl flex`}>
                     {"ISHAN CHAUDHARY".split("").map((char, i) => (
                         <motion.span
                             key={i}
@@ -40,16 +40,58 @@ const About = () => {
                     ))}
                 </div>
 
-                <div className="socials flex pr-30">
-                    <Image src="/github.svg" alt="GitHub" width={24} height={24} />
-                    <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
+                <div className="socials flex pt-2">
+                    <motion.div
+                        className='flex flex-row-reverse'
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        <motion.div className="flex items-center">
+                            {/* GitHub Link */}
+                            <motion.a
+                                href="https://github.com/ishan8727"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 0.7 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                className="inline-block"
+                            >
+                                <Image
+                                    className="rounded-2xl cursor-pointer"
+                                    src="/githubIMG.png"
+                                    alt="GitHub"
+                                    height={40}
+                                    width={160}
+                                />
+                            </motion.a>
+
+                            {/* LinkedIn Link */}
+                            <motion.a
+                                href="https://www.linkedin.com/in/ishanch08"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 0.7 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                className="inline-block ml-10"
+                            >
+                                <Image
+                                    className="rounded-2xl cursor-pointer"
+                                    src="/linkedin.png"
+                                    alt="LinkedIn"
+                                    height={40}  // Changed from 1000 to match GitHub image proportion
+                                    width={160}
+                                />
+                            </motion.a>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Loading line - EXACT original */}
             <motion.div
                 initial={{ width: 10 }}
-                animate={{ width: 500 }}
+                animate={{ width: 700 }}
                 transition={{ duration: 0.5 }}
                 className="bg-amber-50 h-[1px] mt-[10px]"
             />
@@ -64,12 +106,12 @@ const About = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className={`${playfair.className} text-9xl tracking-wide leading-none block mb-15`}
+                        className={`${playfair.className} text-9xl tracking-wide leading-none block mb-5`}
                     >
                         SOFTWARE <br /> DEVELOPER
                     </motion.div>
                 </div>
-                <div className={`font-serif mt-4 mb-20`}>
+                <div className={`font-serif mt-0 mb-55`}>
                     <p className='text-4xl'>
                         from India. <br />
                         I am a keen learner who likes to build and explore tech.
