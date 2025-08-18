@@ -13,6 +13,13 @@ const AboutDivs = () => {
     }
   };
 
+  const downloadResume = (():void => {
+    const link = document.createElement("a");
+    link.href = '/Resume.pdf';
+    link.download = 'Ishan_SDE_Resume.pdf';
+    link.click();
+  })
+
   return (
     <div className='flex flex-col'>
 
@@ -23,13 +30,12 @@ const AboutDivs = () => {
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
         onClick={() => scrollToSection('about')}
       >
-        <motion.text
+        <motion.p
           className='text-8xl bg-white text-black font-medium p-4'
-          whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
           HOME
-        </motion.text>
+        </motion.p>
       </motion.div>
 
       {/* PROJECTs */}
@@ -39,61 +45,63 @@ const AboutDivs = () => {
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
         onClick={() => scrollToSection('projects')}
       >
-        <motion.text
+        <motion.p
           className='text-6xl'
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
           PROJECTs
-        </motion.text>
+        </motion.p>
       </motion.div>
 
-      {/* SKILLS */}
-      <motion.div
-        className='Skills mb-5 cursor-pointer'
-        whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
-        transition={{ type: "spring", stiffness: 900, damping: 50 }}
-        onClick={() => scrollToSection('tech')}
-      >
-        <motion.text
-          className='text-6xl'
-          whileHover={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 900, damping: 50 }}
-        >
-          Skills
-        </motion.text>
-      </motion.div>
 
-      {/* CONTACT */}
+
+      {/* MORE info */}
       <motion.div
-        className='Contact mb-15 cursor-pointer'
+        className='Contact mb-5 cursor-pointer'
         whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
         onClick={() => scrollToSection('contact')}
       >
-        <motion.text
+        <motion.p
           className='text-6xl text-white'
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
-          Contact
-        </motion.text>
+          More?
+        </motion.p>
+
       </motion.div>
 
+      {/* CONTACT */}
+      <motion.button
+        onClick={downloadResume}
+        className='Contact mb-15 cursor-pointer'
+        whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
+        transition={{ type: "spring", stiffness: 900, damping: 50 }}
+      >
+        <motion.p
+          className='text-6xl text-white'
+          whileHover={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        >
+          Get Resume
+        </motion.p>
+      </motion.button>
       {/* EXIT */}
       <motion.div
-        className='border-amber-50 Exit w-[100px] cursor-pointer'
-        whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
+        className='Exit cursor-pointer w-full'
+        whileHover={{ scale: 1.2 }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
         onClick={() => window.history.back()}
       >
-        <motion.text
-          className='text-6xl bg-red-800 w-full text-black'
+        <motion.p
+          className='text-6xl bg-red-800 text-black p-2'
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
           EXIT?
-        </motion.text>
+        </motion.p>
       </motion.div>
 
     </div>
