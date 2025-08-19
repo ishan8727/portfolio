@@ -6,7 +6,8 @@ import axios from 'axios'
 const Footer = () => {
     return (
         <div
-            className="FOOTER  snap-start h-[65vh] w-full flex flex-col border-t border-gray-700 relative"
+        id='footer'
+            className="FOOTER snap-start h-[72vh] w-full flex flex-col border-t border-gray-700 relative"
             style={{
                 backgroundImage: "url('/backgrounds/bkg1.jpg')",
                 backgroundSize: "cover",

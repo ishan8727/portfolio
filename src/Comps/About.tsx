@@ -14,6 +14,13 @@ const playfair = Playfair_Display_SC({
     weight: '700',
 });
 
+const downloadResume=()=>{
+    const link = document.createElement('a');
+    link.href = '/Resume.pdf';
+    link.download = 'Ishan_SDE_Resume.pdf';
+    link.click();
+}
+
 const About = () => {
     return (
         <section

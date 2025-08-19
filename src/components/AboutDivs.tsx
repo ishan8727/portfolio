@@ -13,12 +13,13 @@ const AboutDivs = () => {
     }
   };
 
-  const downloadResume = (():void => {
-    const link = document.createElement("a");
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
     link.href = '/Resume.pdf';
     link.download = 'Ishan_SDE_Resume.pdf';
     link.click();
-  })
+  };
 
   return (
     <div className='flex flex-col'>
@@ -35,6 +36,22 @@ const AboutDivs = () => {
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
           HOME
+        </motion.p>
+      </motion.div>
+
+      {/* RESUME */}
+      <motion.div
+        className='project mb-5 cursor-pointer'
+        whileHover={{ scale: 1.2, backgroundColor: "black" }}
+        transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={downloadResume}
+      >
+        <motion.p
+          className='text-6xl'
+          // whileHover={{ scale: 0.7 }}
+          // transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        >
+          Resume
         </motion.p>
       </motion.div>
 
@@ -74,20 +91,21 @@ const AboutDivs = () => {
       </motion.div>
 
       {/* CONTACT */}
-      <motion.button
-        onClick={downloadResume}
-        className='Contact mb-15 cursor-pointer'
+      <motion.div
+        className='Contact mb-12 cursor-pointer'
         whileHover={{ scale: 1.2, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
+        onClick={() => scrollToSection('footer')}
       >
         <motion.p
           className='text-6xl text-white'
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
-          Get Resume
+          Go Down
         </motion.p>
-      </motion.button>
+      </motion.div>
+
       {/* EXIT */}
       <motion.div
         className='Exit cursor-pointer w-full'
@@ -108,4 +126,4 @@ const AboutDivs = () => {
   )
 }
 
-export default AboutDivs
+export default AboutDivs;
