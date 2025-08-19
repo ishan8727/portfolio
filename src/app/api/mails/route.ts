@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
+import nodemailer from 'nodemailer';
 const mailChecker = import('mailchecker');
-const nodemailer = require('nodemailer');
 
 const redis = new Redis({
-    url: 'https://fresh-kitten-55052.upstash.io',
-    token: 'AdcMAAIncDFlYzg5YTVkYzY2NzQ0ZGY4YWFmYzQyMzlkNzA3YmJiNXAxNTUwNTI',
+    url: process.env.REDIS_url,
+    token: process.env.REDIS_token
 })
 const ratelimit = new Ratelimit({
     redis,
@@ -15,25 +15,25 @@ const ratelimit = new Ratelimit({
 });
 
 export async function POST(req: NextRequest) {
-    
+
     // rate limit checking using @upstash/ratelimit & @upstash/redis
     const ip = req.headers.get("x-forwarded-for") ?? "unknown";
-    const {success} = await ratelimit.limit(ip);
+    const { success } = await ratelimit.limit(ip);
 
-    if(!success) {
-        return NextResponse.json({message:"Too many requests wait for some time now!", success:false}, {status:400})
+    if (!success) {
+        return NextResponse.json({ message: "Too many requests wait for some time now!", success: false }, { status: 400 })
     }
 
-    // @ts-ignore
     const { name, email, message } = await req.json();
 
-    if(!(await mailChecker).isValid(email)){
-        return NextResponse.json({ message: "wth is this email?.......uhhhhhh do you think I am dumb!?.", success:false}, { status: 400 });
+    if (!(await mailChecker).isValid(email)) {
+        return NextResponse.json({ message: "wth is this email?.......uhhhhhh do you think I am dumb!?.", success: false }, { status: 400 });
     }
 
     if (!name || !email || !message) {
         return NextResponse.json({
-            error: "Missing required fields!", success:false },
+            error: "Missing required fields!", success: false
+        },
             {
                 status: 400
             });
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
     try {
         const transporter = nodemailer.createTransport({
-            host:'smtp.gmail.com',
+            host: 'smtp.gmail.com',
             port: 587,
             secure: false,
             auth: {
@@ -69,12 +69,12 @@ export async function POST(req: NextRequest) {
         })
 
         return NextResponse
-        .json({message:'Mail sent successfully!', success: true}, {status:200});
-        
+            .json({ message: 'Mail sent successfully!', success: true }, { status: 200 });
+
     } catch (error) {
         console.error(error);
-        return NextResponse.json({ error: "Error while processing request!" , success:false },
-            {status: 500}
+        return NextResponse.json({ error: "Error while processing request!", success: false },
+            { status: 500 }
         )
     }
 }
