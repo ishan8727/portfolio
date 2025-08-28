@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Major_Mono_Display, Playfair_Display_SC } from 'next/font/google';
 import Image from 'next/image';
 import AboutDivs from '@/components/AboutDivs';
+import Tooltip from '../components/ui/Tooltip';
 
 const majorMono = Major_Mono_Display({
     subsets: ['latin'],
@@ -15,6 +16,14 @@ const playfair = Playfair_Display_SC({
 });
 
 const About = () => {
+
+    const downloadResume = () => {
+        const link = document.createElement('a');
+        link.href = '/Resume.pdf';
+        link.download = 'Ishan_SDE_Resume.pdf';
+        link.click();
+    };
+
     return (
         <section
             id="about"
@@ -69,17 +78,18 @@ const About = () => {
                                     href="https://github.com/ishan8727"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 0.9 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                    whileHover={{ scale: 1.3 }}
                                     className="inline-block"
                                 >
-                                    <Image
-                                        className="rounded-2xl cursor-pointer"
-                                        src="/backgrounds/githubIMG.png"
-                                        alt="GitHub"
-                                        height={40}
-                                        width={160}
-                                    />
+                                    <Tooltip text={'Github?'}>
+                                        <Image
+                                            className="rounded-md cursor-pointer invert"
+                                            src="/backgrounds/githubIMG.png"
+                                            alt="GitHub"
+                                            height={30}
+                                            width={50}
+                                        />
+                                    </Tooltip>
                                 </motion.a>
 
                                 {/* LinkedIn Link */}
@@ -87,17 +97,36 @@ const About = () => {
                                     href="https://www.linkedin.com/in/ishanch08"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 0.9 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                                    className="inline-block ml-10"
+                                    whileHover={{ scale: 1.3 }}
+                                    className="inline-block ml-5 invert"
                                 >
-                                    <Image
-                                        className="rounded-2xl cursor-pointer"
-                                        src="/backgrounds/linkedin.png"
-                                        alt="LinkedIn"
-                                        height={40}
-                                        width={160}
-                                    />
+                                    <Tooltip text={'LinkedIn?'}>
+                                        <Image
+                                            className="rounded-md cursor-pointer"
+                                            src="/backgrounds/linkedin.png"
+                                            alt="LinkedIn"
+                                            height={30}
+                                            width={50}
+                                        />
+                                    </Tooltip>
+
+                                </motion.a>
+                                {/* { Resume } */}
+                                <motion.a
+                                    onClick={downloadResume}
+                                    whileHover={{ scale: 1.3 }}
+                                    className="inline-block ml-5 mr-2 invert"
+                                >
+
+                                    <Tooltip text={'Get Resume'}>
+                                        <Image
+                                            className="rounded-md cursor-pointer "
+                                            src="/backgrounds/resume.png"
+                                            alt="LinkedIn"
+                                            height={30}
+                                            width={50}
+                                        />
+                                    </Tooltip>
                                 </motion.a>
                             </motion.div>
                         </motion.div>
@@ -113,9 +142,9 @@ const About = () => {
                 />
 
                 {/* Main content */}
-                <div className='flex flex-col justify-end h-screen w-full mt-[35vh]'>
+                <div className='flex flex-col justify-end h-screen w-full mt-[45vh]'>
                     <div className="text-intro w-[90vw]">
-                        <span className={`text-5xl tracking-wide leading-none block ml-3`}>
+                        <span className={`text-4xl tracking-wide leading-none block ml-3`}>
                             I am a &#10733;
                         </span>
                         <motion.div

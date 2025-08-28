@@ -1,5 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Major_Mono_Display, Playfair_Display_SC } from 'next/font/google';
+
+const majorMono = Major_Mono_Display({
+  subsets: ['latin'],
+  weight: '400',
+});
+
+const playfair = Playfair_Display_SC({
+  subsets: ['latin'],
+  weight: '700',
+});
+
 
 const AboutDivs = () => {
   // Smooth scroll function to navigate to specific sections
@@ -13,19 +25,11 @@ const AboutDivs = () => {
     }
   };
 
-
-  const downloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/Resume.pdf';
-    link.download = 'Ishan_SDE_Resume.pdf';
-    link.click();
-  };
-
   return (
     <div className='flex flex-col'>
 
       {/* HOME */}
-      <motion.div
+      {/* <motion.div
         className='project mb-15 cursor-pointer'
         whileHover={{ scale: 1, backgroundColor: "#dc2626" }}
         transition={{ type: "spring", stiffness: 900, damping: 50 }}
@@ -37,23 +41,7 @@ const AboutDivs = () => {
         >
           HOME
         </motion.p>
-      </motion.div>
-
-      {/* RESUME */}
-      <motion.div
-        className='project mb-5 cursor-pointer'
-        whileHover={{ scale: 1.2, backgroundColor: "black" }}
-        transition={{ type: "spring", stiffness: 900, damping: 50 }}
-        onClick={downloadResume}
-      >
-        <motion.p
-          className='text-6xl'
-          // whileHover={{ scale: 0.7 }}
-          // transition={{ type: "spring", stiffness: 900, damping: 50 }}
-        >
-          Resume
-        </motion.p>
-      </motion.div>
+      </motion.div> */}
 
       {/* PROJECTs */}
       <motion.div
@@ -63,11 +51,11 @@ const AboutDivs = () => {
         onClick={() => scrollToSection('projects')}
       >
         <motion.p
-          className='text-6xl'
+          className={`text-4xl ${majorMono.className}`}
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
-          PROJECTs
+          Projects
         </motion.p>
       </motion.div>
 
@@ -81,7 +69,7 @@ const AboutDivs = () => {
         onClick={() => scrollToSection('contact')}
       >
         <motion.p
-          className='text-6xl text-white'
+          className={`text-4xl text-white ${majorMono.className}`}
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
@@ -98,7 +86,7 @@ const AboutDivs = () => {
         onClick={() => scrollToSection('footer')}
       >
         <motion.p
-          className='text-6xl text-white'
+          className={`text-4xl text-white ${majorMono.className}`}
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
@@ -114,7 +102,7 @@ const AboutDivs = () => {
         onClick={() => window.history.back()}
       >
         <motion.p
-          className='text-6xl bg-red-800 text-black p-2'
+          className={`text-5xl bg-red-800 text-black p-2 ${majorMono.className}`}
           whileHover={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 900, damping: 50 }}
         >
