@@ -118,7 +118,7 @@ const About = () => {
                                     className="inline-block ml-5 mr-2 invert"
                                 >
 
-                                    <Tooltip text={'Get Resume'}>
+                                    <Tooltip text={'Resume'}>
                                         <Image
                                             className="rounded-md cursor-pointer "
                                             src="/backgrounds/resume.png"
@@ -142,7 +142,7 @@ const About = () => {
                 />
 
                 {/* Main content */}
-                <div className='flex flex-col justify-end h-screen w-full mt-[45vh]'>
+                <div className='flex flex-col justify-end h-screen w-full mt-[50vh]'>
                     <div className="text-intro w-[90vw]">
                         <span className={`text-4xl tracking-wide leading-none block ml-3`}>
                             I am a &#10733;

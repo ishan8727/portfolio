@@ -77,7 +77,7 @@ const Tooltip = ({
                         WebkitBackdropFilter: 'blur(14px) saturate(160%)',
                         backdropFilter: 'blur(14px) saturate(160%)',
                         boxShadow: '0 4px 24px -2px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.08)',
-                        filter: 'none', // neutralize parent filters
+                        filter: 'none', // no parent filters
                         mixBlendMode: 'normal',
                     }}
                 >

@@ -3,6 +3,8 @@ import { Major_Mono_Display, Playfair_Display_SC } from 'next/font/google';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import Ripple from '@/components/ui/Ripple';
+
 const majorMono = Major_Mono_Display({
   subsets: ['latin'],
   weight: '400',
@@ -129,7 +131,6 @@ const Contact = () => {
             </p>
           </motion.div>
         </div>
-
       </div>
     </div>
   )
